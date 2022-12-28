@@ -1,30 +1,33 @@
-import './App.css';
-import logo from './imagenes/logo.png'
-import Boton from './componentes/Boton'
-import Pantalla from './componentes/Pantalla';
-import BotonClear from './componentes/BotonClear';
-import { useState} from 'react';
-import { evaluate } from 'mathjs'
+import './App.css'; // Import the styles for the app
+import logo from './imagenes/logo.png' // Import the logo image
+import Boton from './componentes/Boton'// Import the Button component
+import Pantalla from './componentes/Pantalla'; // Import the Screen component
+import BotonClear from './componentes/BotonClear'; // Import the Clear Button component
+import { useState} from 'react'; // Import the useState hook from react
+import { evaluate } from 'mathjs'  // Import the evaluate function from mathjs
 
 
 function App() {
-
+  // Declare the input state variable and the setInput function using the useState hook
   const [input, setInput] = useState('');
-
+  // Define a function that adds a value to the input state variable
   const agregarInput = val =>{
     setInput(input + val);
   };
-
+  // Define a function that calculates the result of the input expression
   const calcularResultado = () => {
+    // Check if there is an input value
     if (input) {
+      // Use the evaluate function from mathjs to calculate the result of the input expression
       setInput(evaluate(input));
     } else {
+      // If there is no input value, show an alert
       alert("Agrege algun valor");
     }  
   };
 
 
-
+  // Render the JSX for the app
   return (
     <div className='App'>
       <div className='logo-contenedor'>
